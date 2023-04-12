@@ -7,9 +7,9 @@
 
 ; the label 's' refers to a 6 byte RAM area that must be initialized
 ; with a random seed value. Any seed value will do, and will result in 
-; an exact period of 256T byte.
+; an exact period of 256T (2^48). 
 ; 
-; the lable 'o' refers to a 4 byte output area where the 32 bit random 
+; the label 'o' refers to a 4 byte output area where the 32 bit random 
 ; number will be stored
 ;
 ; The random generator has good quality for its size (passes 256GB in PractRand).
