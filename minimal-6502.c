@@ -9,6 +9,10 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <unistd.h>
+#ifdef _WIN32
+#include <fcntl.h>
+#include <io.h>
+#endif
 
 #define EOR( a, b )                 \
     do {                            \
@@ -34,6 +38,9 @@ int main( void )
     int x;
 
     setvbuf( stdout, buf, _IOFBF, sizeof(buf) ); 
+#ifdef _WIN32
+    _setmode(_fileno(stdout), _O_BINARY);
+#endif
     while( 1 )
     {
         ADD( s0, 0x45 );
