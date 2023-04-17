@@ -35,7 +35,7 @@ int main( void )
 {
     static char buf[65536];
     uint8_t s0 = 0, s1 = 0, s2 = 0, s3 = 0, s4 = 0, s5 = 0;
-    int x;
+    unsigned int x;
 
     setvbuf( stdout, buf, _IOFBF, sizeof(buf) ); 
 #ifdef _WIN32
