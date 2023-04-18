@@ -11,7 +11,8 @@
 ; 
 ; the subroutine returns a random byte in the accumulator
 ;
-; the output of this random number generator passes PractRand up to 2TB output.
+; the output of this random number generator passes PractRand up to 4TB output
+; using all zero seed
 ;
 prng:
     CLC
