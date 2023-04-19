@@ -34,7 +34,7 @@
 /*
  * ADD with carry. The expression 'b' is added to
  * variable 'a' using the carry flag stored in bit 8
- * of register x.
+ * of variable x.
  */
 #define ADC( a, b )                 \
     do {                            \
