@@ -17,7 +17,17 @@
 ; 12 additional cycles for absolute accesses.
 ;
 ; the output of this random number generator passes Dieharder as well as
-; PractRand up to 2GB output.
+; PractRand up to 2GB output. It also passes TestU01's SmallCrush and 
+; Crush, but fails on a few tests of BigCrush:
+;
+;       Test                          p-value
+; ----------------------------------------------
+; 11  CollisionOver, t = 21           4.5e-4
+; 20  BirthdaySpacings, t = 16         eps
+; 41  Permutation, t = 5             1.1e-12
+; ----------------------------------------------
+; All other tests were passed
+; 
 ;
 prng:
     CLC
