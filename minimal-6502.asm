@@ -11,6 +11,9 @@
 ; 
 ; the subroutine returns a random byte in the accumulator
 ;
+; the code takes 46 cycles for the actual update, plus 12 cycles for the 
+; JSR/RTS overhead if used as a subroutine.
+;
 ; the output of this random number generator passes Dieharder as well as
 ; PractRand up to 4GB output.
 ;
