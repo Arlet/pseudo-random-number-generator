@@ -14,11 +14,6 @@
 #include <io.h>
 #endif
 
-#define EOR( a, b )                 \
-    do {                            \
-        a ^= (b);                   \
-    } while (0)
-
 #define ADD( a, b )                 \
     do {                            \
         x = a + (b);                \
@@ -34,7 +29,7 @@
 int main( void )
 {
     static char buf[65536];
-    uint8_t s0 = 0, s1 = 0, s2 = 0, s3 = 0, s4 = 0, s5 = 0;
+    uint8_t s0 = 0, s1 = 0, s2 = 0, s3 = 0, s4 = 0;
     unsigned int x;
 
     setvbuf( stdout, buf, _IOFBF, sizeof(buf) ); 
@@ -43,15 +38,13 @@ int main( void )
 #endif
     while( 1 )
     {
-        ADD( s0, 0x45 );
+        ADD( s0, 0x41 );
         ADC( s1, s0 ); 
         ADC( s2, s1 );
         ADC( s3, s2 );
-        EOR( s4, s3 );
-        ADC( s4, s5 );
-        ADC( s5, s4 );
-        EOR( s5, s2 );
-
-        putchar( s5 );
+        ADC( s4, s3 );
+        ADD( s4, s4 );
+        ADC( s4, s3 );
+        putchar( s4 ^ s2 );
     }
 }
