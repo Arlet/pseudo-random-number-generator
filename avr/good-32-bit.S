@@ -10,7 +10,7 @@
 ;
         .global rand32
 
-    ; uint32_t fast_rand( uint8_t *state );
+    ; uint32_t rand32( uint8_t *state );
 
 rand32:
         movw    Z, r24      ; get pointer to state
