@@ -3,9 +3,9 @@
 ; including call/ret overhead.
 ;
 ;
-; minimum period is 2^48 states. Output passes PractRand <= 16TB.
+; minimum period is 2^48 states (no bad seed values). Output passes PractRand <= 16TB, and BigCrush.
 ;
-; Copyright (C) Arlet Ottens, <arlet@c-scape.nl>
+; Copyright (C) Arlet Ottens 2023, <arlet@c-scape.nl>
 ;
 ;
         .global rand32
