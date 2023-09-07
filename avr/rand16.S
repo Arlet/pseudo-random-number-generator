@@ -10,6 +10,17 @@
 ; Y = R28:R29
 ; Z = R30:R31
 
+; function prototype:
+;
+; uint32_t rand16( uint8_t state[16] )
+;
+; state refers to a 16 byte array. If you prefer you can redefine
+; the state as 4x32 bit, or 8x16 bit.
+;
+; after calling the function, you can either use the 32 bit return
+; value as a random number, or you can copy values from the state[]
+; array
+
         .global rand16
         .type   rand16, @function
 rand16:
