@@ -178,11 +178,11 @@ dance:
         adc     r11, r23
         adc     r10, r11
         adc     r22, r10
-        adc     r8, r22
-        adc     r19, r8
+        adc     r19, r22
         adc     r20, r19
         adc     r17, r20
-        adc     r21, r17
+        adc     r8, r17
+        adc     r21, r8
         adc     r16, r21
         adc     r8, r16
         adc     r13, r8
