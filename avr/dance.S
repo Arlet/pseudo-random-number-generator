@@ -147,10 +147,10 @@ dance:
         adc     r22, r19
         adc     r15, r22
         adc     r22, r15
-        adc     r11, r22
-        adc     r18, r11
+        adc     r18, r22
         adc     r16, r18
-        adc     r23, r16
+        adc     r11, r16
+        adc     r23, r11
         adc     r18, r23
         adc     r12, r18
         adc     r20, r12
