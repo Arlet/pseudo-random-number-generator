@@ -126,7 +126,8 @@ key, and fill the IV with a nonce/counter to produce 64 bytes of random
 data. After a call, the state can be reinitialized, or it can be 
 left to be recycled in the next call. Resetting the state means you can
 do random access to different offsets in the stream.  If a 64 byte key is
-too much for your application, 
+too much for your application, you can use a smaller key, and fill up the 
+rest of the state with a fixed random pattern of your choice.
 
 Output data can be used to generate secure random numbers, such as for
 passwords/private keys, or it can be used in a stream cipher.
