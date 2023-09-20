@@ -43,13 +43,13 @@
  * [ROUND]--> BLOCK0   +--> [ROUND] --> BLOCK1   +--> ...
  *              |      |                  |      |
  *              v      ^                  v      ^
- *     ROW0-->[ADC]-->ROW0       ROW1-->[ADC]-->ROW1 
+ *     ROW0-->[MIX]-->ROW0       ROW1-->[MIX]-->ROW1 
  *
  * There's a 16 byte BLOCK, initialized once by the IV, and then kept
  * throughout the entire procedure. The following steps are repeated:
  * 
  * 1) mix up the block by applying a round function. 
- * 2) add the block to a row from memory state
+ * 2) mix the block with 16 byte row from memory state, using ADC/SBC/EOR
  * 3) the output row is fed back and used as next block 
  *
  * These steps are repeated 4 times, once for each row in the memory. You can
