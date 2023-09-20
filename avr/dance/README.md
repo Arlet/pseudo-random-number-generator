@@ -1,12 +1,11 @@
-# dance.S -- small, fast, cryptographically secure pseudo random generator
-optimized for Microchip AVR (Arduino)
+# dance.S -- small, fast, cryptographically secure pseudo random generator optimized for Microchip AVR (Arduino)
 
-copyright 2023 (C) Arlet Ottens <arlet@c-scape.nl>
+*Arlet Ottens* <arlet@c-scape.nl>
 
 The `dance()` function is called with a pointer to a 64 byte
 state array, followed by 16 bytes worth of initialization vector
 (IV). The IV can be as any combination of `uint8_t`, `uint16_t`,
-uint32_t or uint64_t, as long as they add up to exactly 16 bytes.
+`uint32_t` or `uint64_t`, as long as they add up to exactly 16 bytes.
 
 here's a few examples:
 
@@ -15,6 +14,9 @@ void dance( uint8_t state[64], uint64_t IV0, uint64_t IV1 )
 
 void dance( uint8_t state[64], uint32_t IV0, uint32_t IV1, 
                                uint32_t IV2, uint32_t IV3 )
+
+void dance( uint8_t state[64], uint64_t IV0, uint32_t IV1,
+                               uint16_t IV2, uint16_t IV3 )
 ```
 In the AVR GCC calling convention, the 'state' is passed in r25-r24,
 and the 16 bytes of IV are passing in r23-r8. The IV is user
@@ -57,7 +59,7 @@ NR_ROUNDS, which is currently defined as 8.
 ## Performance
 
 For typical case of 4 rows, the code runs at under 8 cycles/byte/round. 
-8 rounds on a 16 MHz Arduino can be done in under 4 microseconds/byte.
+8 rounds on a 16 MHz Arduino can be done under 4 microseconds/byte.
 
 Total code size is 190 bytes.
 
@@ -98,6 +100,12 @@ improvement, if you have the patience to run the tests. The benefit of
 SWAP/EOR is also that it breaks up the fixed ADC pattern with something
 completely different, making it less likely someone finds a clever shortcut.
 
+Because the code makes extensive use of 8 bit operations, with tight
+dependency between operations, it performs very poorly on modern CPU
+architectures. For cross-architecture applications, that's not really a
+problem because a modern CPU can still easily keep up with an AVR. For
+protection against brute force password guessing, the low performance on
+PC architecture is actually a benefit.
 
 Alternatives
 ------------
