@@ -125,7 +125,8 @@ use the ChaCha/Salsa cipher. You can fill the initial state with a
 key, and fill the IV with a nonce/counter to produce 64 bytes of random
 data. After a call, the state can be reinitialized, or it can be 
 left to be recycled in the next call. Resetting the state means you can
-do random access to different offsets in the stream. 
+do random access to different offsets in the stream.  If a 64 byte key is
+too much for your application, 
 
 Output data can be used to generate secure random numbers, such as for
 passwords/private keys, or it can be used in a stream cipher.
