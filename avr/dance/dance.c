@@ -6,8 +6,6 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
 #include <string.h>
 
 #define SWAP( a )                   \
@@ -179,5 +177,4 @@ int main( int argc, char **argv )
         printf( "bad result\n" );
     else
         printf( "good result\n" );
-
 }
