@@ -193,26 +193,26 @@ dance:
         adc     r11, r19
         adc     r20, r11
         adc     r21, r20
-        adc     r22, r21
-        adc     r19, r22
-        adc     r23, r19
-        adc     r12, r23
+        adc     r19, r21
+        adc     r22, r19
+        adc     r12, r22
         swap    r12
         eor     r15, r12
         adc     r18, r15
-        adc     r21, r18
-        swap    r21
-        eor     r10, r21
-        adc     r16, r10
-        adc     r20, r16
+        adc     r22, r18
+        adc     r23, r22
+        swap    r23
+        eor     r10, r23
+        adc     r17, r10
+        adc     r20, r17
         swap    r20
         eor     r8, r20
-        adc     r22, r8
-        adc     r23, r22
-        adc     r9, r23
+        adc     r23, r8
+        adc     r21, r23
+        adc     r9, r21
         adc     r13, r9
         adc     r8, r13
-        adc     r17, r8
+        adc     r16, r8
 
     ; now read 16 bytes from memory area pointed by 'Z',
     ; mix it with the state, and write it back.
